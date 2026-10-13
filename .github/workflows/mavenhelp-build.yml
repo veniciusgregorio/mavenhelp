@@ -5,6 +5,8 @@ on:
 
 jobs:
   run-mavenhelp-build:
+    permissions:
+      contents: write
     uses: ./.github/workflows/flutter-build.yml
     secrets: inherit
     with:
