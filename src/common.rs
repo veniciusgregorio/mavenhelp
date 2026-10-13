@@ -2458,7 +2458,7 @@ pub fn rustdesk_interval(i: Interval) -> ThrottledInterval {
 const BRAND_APP_NAME: &str = "MavenHelp";
 const BRAND_RENDEZVOUS_SERVER: &str = "suporte.mavenhub.com.br";
 // Public key of the self-hosted server (contents of id_ed25519.pub).
-const BRAND_KEY: &str = "";
+const BRAND_KEY: &str = "2fogVwlTFb1skjwyHbnhh8SLFhTXOWWlm5oymH8v1FY=";
 
 fn apply_branding() {
     *config::APP_NAME.write().unwrap() = BRAND_APP_NAME.to_owned();
