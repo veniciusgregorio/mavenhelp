@@ -2454,7 +2454,26 @@ pub fn rustdesk_interval(i: Interval) -> ThrottledInterval {
     ThrottledInterval::new(i)
 }
 
+// MavenHelp branding: app name and self-hosted server baked into the build.
+const BRAND_APP_NAME: &str = "MavenHelp";
+const BRAND_RENDEZVOUS_SERVER: &str = "suporte.mavenhub.com.br";
+// Public key of the self-hosted server (contents of id_ed25519.pub).
+const BRAND_KEY: &str = "";
+
+fn apply_branding() {
+    *config::APP_NAME.write().unwrap() = BRAND_APP_NAME.to_owned();
+    let mut settings = config::DEFAULT_SETTINGS.write().unwrap();
+    settings.insert(
+        keys::OPTION_CUSTOM_RENDEZVOUS_SERVER.to_owned(),
+        BRAND_RENDEZVOUS_SERVER.to_owned(),
+    );
+    if !BRAND_KEY.is_empty() {
+        settings.insert(keys::OPTION_KEY.to_owned(), BRAND_KEY.to_owned());
+    }
+}
+
 pub fn load_custom_client() {
+    apply_branding();
     #[cfg(debug_assertions)]
     if let Ok(data) = std::fs::read_to_string("./custom.txt") {
         read_custom_client(data.trim());
