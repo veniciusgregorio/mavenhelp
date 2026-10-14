@@ -12,3 +12,15 @@ jobs:
     with:
       upload-artifact: true
       upload-tag: "mavenhelp-latest"
+
+  rename-assets:
+    needs: run-mavenhelp-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - name: Rename installers to SuporteMV
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash .github/scripts/rename-mavenhelp-assets.sh mavenhelp-latest --delete-old
