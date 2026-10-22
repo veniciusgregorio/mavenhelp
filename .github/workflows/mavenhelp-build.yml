@@ -15,6 +15,9 @@ jobs:
 
   rename-assets:
     needs: run-mavenhelp-build
+    # Publish whatever platforms succeeded even if an unrelated platform
+    # (e.g. a flaky macOS runner) makes the overall build job report failure.
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
