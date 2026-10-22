@@ -2454,8 +2454,8 @@ pub fn rustdesk_interval(i: Interval) -> ThrottledInterval {
     ThrottledInterval::new(i)
 }
 
-// MavenHelp branding: app name and self-hosted server baked into the build.
-const BRAND_APP_NAME: &str = "MavenHelp";
+// SuporteMV branding: app name and self-hosted server baked into the build.
+const BRAND_APP_NAME: &str = "SuporteMV";
 const BRAND_RENDEZVOUS_SERVER: &str = "suporte.mavenhub.com.br";
 // Public key of the self-hosted server (contents of id_ed25519.pub).
 const BRAND_KEY: &str = "2fogVwlTFb1skjwyHbnhh8SLFhTXOWWlm5oymH8v1FY=";
